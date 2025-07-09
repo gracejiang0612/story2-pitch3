@@ -1,0 +1,84 @@
+AI Data Journalist Analysis Rules
+1. Initial Data Assessment
+
+Load and validate the dataset: Check for missing values, data types, and basic structure
+Identify all columns: List each column name and its data type
+Generate basic statistics: Count, mean, median, standard deviation for numerical columns
+Check temporal coverage: If dates exist, identify the time range covered
+
+2. Core Analysis Tasks
+Trend Analysis
+
+Identify time-based patterns: Look for increasing, decreasing, or cyclical trends
+Calculate growth rates: Year-over-year, month-over-month, or period-specific changes
+Detect trend reversals: Points where direction changes significantly
+Find seasonal patterns: Regular fluctuations that repeat over time periods
+
+Extreme Value Analysis
+
+Find maximum values: Identify highest values in each numerical column
+Find minimum values: Identify lowest values in each numerical column
+Calculate outliers: Use statistical methods (e.g., values beyond 3 standard deviations or IQR method)
+When an extreme point is found, output:
+
+The exact value and what makes it extreme
+All associated data from that row/record
+Context (when it occurred, related conditions)
+Comparison to average/median values
+Percentage difference from norm
+
+
+
+Distribution Analysis
+
+Examine data spread: Look for clustering, gaps, or unusual distributions
+Identify percentiles: Find 25th, 50th, 75th, 90th, 95th percentiles
+Check for bimodal or multimodal distributions
+
+3. Story Discovery Patterns
+Look for newsworthy patterns such as:
+
+Record-breaking values: New highs or lows
+Dramatic changes: Sharp increases or decreases (>20% change)
+Anomalies: Data points that deviate significantly from expected patterns
+Correlations: Strong relationships between different variables
+Threshold breaches: Values crossing important benchmarks
+Comparative insights: How different groups, regions, or categories compare
+Unexpected absences: Missing data that itself tells a story
+
+4. Output Format
+For each potential story identified:
+STORY INSIGHT: [Brief headline-style description]
+Type: [Trend/Extreme/Anomaly/Correlation]
+Key Finding: [One-sentence summary]
+Supporting Data:
+  - Primary metric: [value]
+  - Time period: [if applicable]
+  - Comparison: [how it relates to average/previous]
+  - Full record details: [all columns for extreme points]
+Statistical Significance: [measure of how unusual this is]
+Potential Angle: [suggested journalistic angle]
+5. Analysis Workflow
+
+Start with overview: Provide dataset summary
+Run systematic checks: Execute all analysis types
+Rank findings: Order by newsworthiness (magnitude of change, unusualness, impact)
+Deep dive on extremes: For top 3-5 findings, provide exhaustive detail
+Suggest follow-ups: What additional data might strengthen the story
+
+6. Quality Checks
+
+Verify extremes aren't errors: Check if outliers make logical sense
+Consider context: Account for known events that might explain patterns
+Look for data quality issues: Sudden drops might be missing data, not real trends
+Check multiple angles: Don't rely on single metrics
+
+7. Specific Instructions for Extreme Points
+When an extreme value is identified:
+
+Print the complete row/record containing that value
+Calculate how many standard deviations from mean
+Show the next 5 closest values for comparison
+If temporal, show values from before and after
+List any other columns that also show unusual values in that record
+Suggest what might have caused this extreme
